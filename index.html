@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC College</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        header {
+            background-color: #003366;
+            padding: 10px 0;
+            display: none;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        section {
+            display: none;
+            padding: 40px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h1, h2 {
+            color: #003366;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d99;
+        }
+
+        .details {
+            margin-top: 10px;
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .signin-form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #welcomePage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1CB5E0, #000851);
+            color: white;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #collegeName {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        #welcomePage button {
+            background-color: #ff6a00;
+            color: white;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        #welcomePage button:hover {
+            background-color: #ee0979;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcomePage">
+        <h1 id="collegeName">ABC COLLEGE</h1>
+        <h2>Welcome to Our College Website</h2>
+        <button onclick="enterWebsite()">Enter</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('courses')">Courses</a></li>
+                <li><a onclick="showSection('departments')">Departments</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+                <li><a onclick="showSection('signin')">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sections -->
+    <section id="home">
+        <h1>Welcome to ABC College</h1>
+        <p>Your future begins here. Explore our wide range of academic programs and vibrant campus life.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>ABC College is committed to providing quality education, fostering research, and shaping global leaders. Our campus offers state-of-the-art facilities, experienced faculty, and numerous student opportunities.</p>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <ul>
+            <li>Bachelor of Technology (B.Tech)</li>
+            <li>Bachelor of Business Administration (BBA)</li>
+            <li>Master of Computer Applications (MCA)</li>
+            <li>Master of Business Administration (MBA)</li>
+        </ul>
+    </section>
+
+    <section id="departments">
+        <h2>Departments</h2>
+        <p>We offer various departments including Computer Science, Electronics and Communication, and Management Studies providing world-class education and research opportunities.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@abccollege.edu</p>
+        <p>Phone: +91-9876543210</p>
+        <p>Location: 123, College Road, Hyderabad</p>
+    </section>
+
+    <section id="signin">
+        <h2>Student Sign In</h2>
+        <form class="signin-form">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+    </section>
+
+<script>
+    function enterWebsite() {
+        document.getElementById('welcomePage').style.display = 'none';
+        document.querySelector('header').style.display = 'block';
+        showSection('home');
+    }
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+</body>
+</html>
